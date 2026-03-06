@@ -2,7 +2,7 @@
 
 public record GetProductsQuery() : IQuery<GetProductsResult>;
 
-public record GetProductsResult(IEnumerable<Product> Products);
+public record GetProductsResult(IEnumerable<ProductDto> Products);
 
 internal class GetProductsQueryHandler
     (IDocumentSession session, ILogger<GetProductsQueryHandler> logger) 
@@ -14,6 +14,8 @@ internal class GetProductsQueryHandler
 
         var products = await session.Query<Product>().ToListAsync(cancellationToken);
 
-        return new GetProductsResult(products);
+        var productDtos = products.Adapt<IEnumerable<ProductDto>>();
+
+        return new GetProductsResult(productDtos);
     }
 }

@@ -1,16 +1,16 @@
 ﻿namespace Catalog.API.Products.GetProducts;
 
-public record GetProductsResponse(IEnumerable<Product> Products);
+public record GetProductsResponse(IEnumerable<ProductDto> Products);
 
 public class GetProductsEndpoint : ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)
     {
-        app.MapGet("/products", async (ISender sender) =>
+        app.MapGet("/products", async (ISender sender, CancellationToken cancellationToken = default) =>
         {
-            var response = await sender.Send(new GetProductsQuery());
+            var response = await sender.Send(new GetProductsQuery(), cancellationToken);
 
-            var result = response.Adapt<GetProductsResponse>();
+            var result = new GetProductsResponse(response.Products);
 
             return Results.Ok(result);
         })
