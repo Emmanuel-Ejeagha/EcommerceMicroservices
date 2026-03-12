@@ -5,8 +5,11 @@
   </Folder>
 
   <Folder Name="/BuildingBlocks/" />
-  <Folder Name="/BuildingBlocks/BuildingBlocks/" >
+  <Folder Name="/BuildingBlocks/BuildingBlocks/">
   <Project Path="BuildingBlocks/BuildingBlocks/BuildingBlocks.csproj" />
   </Folder>
+  <Project Path="docker-compose.dcproj">
+    <Build />
+  </Project>
 
 </Solution>
