@@ -66,19 +66,23 @@ dotnet run --project src/Services/Catalog.API/Catalog.API.csproj
 dotnet run --project src/Services/Basket.API/Basket.API.csproj
 dotnet run --project src/Services/Discount.gRPC/Discount.gRPC.csproj
 Ports are configured in each service’s appsettings.json and launchSettings.json.
+```
 
 Running with Docker Compose
 The entire stack can be launched with a single command:
 
-bash
+```bash
 docker-compose up -d
 This will start all services, PostgreSQL, Redis, and the SQLite volume. The API endpoints will be available on the Docker external ports defined above (e.g., http://localhost:6000 for Catalog).
-
+```
 To stop:
 
-bash
+```bash
 docker-compose down
-📡 API Endpoints
+```
+
+## 📡 API Endpoints
+```
 Catalog API (/products)
 Method	Endpoint	Description
 GET	/products	Get all products
@@ -93,8 +97,9 @@ GET	/basket/{username}	Retrieve basket by username
 POST	/basket	Store or update a basket
 DELETE	/basket/{username}	Delete basket by username
 Note: The Basket API calls the Discount.gRPC service to apply coupon discounts to each shopping cart item automatically.
+```
 
-Discount.gRPC (gRPC)
+## Discount.gRPC (gRPC)
 Service Method	Description
 GetDiscount	Get a coupon by product name
 CreateDiscount	Create a new coupon
@@ -102,10 +107,11 @@ UpdateDiscount	Update an existing coupon
 DeleteDiscount	Delete a coupon
 The Basket API consumes the GetDiscount method to retrieve applicable discounts.
 
-🧪 Testing
+## 🧪 Testing
 All endpoints have been tested using Postman both in local and Docker environments. Sample requests and responses can be found in the docs/ folder (if you include them).
 
-📁 Project Structure
+## 📁 Project Structure
+```
 src
 ├── BuildingBlocks/                 # Shared libraries
 │   ├── Behaviors/                  # MediatR pipeline behaviors
@@ -136,13 +142,15 @@ src
 │   └── Ordering.API/               # (Planned)
 ├── docker-compose.yml              # Orchestrates all services
 └── README.md
-🔧 Configuration
+```
+
+## 🔧 Configuration
 Environment variables – Used for connection strings, port bindings, and service URLs. See docker-compose.yml and appsettings.*.json for details.
 
 Health Checks – All services expose health endpoints for monitoring (e.g., /health).
 
-📄 License
+## 📄 License
 This project is licensed under the MIT License – see the LICENSE file for details.
 
-🤝 Contributing
+## 🤝 Contributing
 Contributions are welcome! Please open an issue or pull request for any improvements or bug fixes.8
