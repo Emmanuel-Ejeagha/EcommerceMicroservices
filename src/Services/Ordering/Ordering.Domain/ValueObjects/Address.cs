@@ -8,6 +8,7 @@ public record Address
     public string AddressLine { get; } = default!;
     public string Country { get; } = default!;
     public string State { get; } = default!;
+    public string City { get; } = default!;
     public string PostalCode { get; } = default!;
 
     protected Address()
@@ -16,7 +17,7 @@ public record Address
 
     public Address(
         string firstname, string lastname, string emailAddress, string addressline,
-        string country, string state, string postalCode)
+        string country, string state, string city,string postalCode)
     {
         FirstName = firstname;
         LastName = lastname;
@@ -24,18 +25,19 @@ public record Address
         AddressLine = addressline;
         Country = country;
         State = state;
+        City = city;
         PostalCode = postalCode;
     }
 
     public static Address Of(
         string firstname, string lastname, string emailAddress, string addressline,
-        string country, string state, string postalCode)
+        string country, string state, string city, string postalCode)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(firstname);
         ArgumentException.ThrowIfNullOrWhiteSpace(lastname);
         ArgumentException.ThrowIfNullOrWhiteSpace(emailAddress);
         ArgumentException.ThrowIfNullOrWhiteSpace(addressline);
 
-        return new Address(firstname, lastname, emailAddress, addressline, country, state, postalCode);
+        return new Address(firstname, lastname, emailAddress, addressline, country, state, city, postalCode);
     }
 }
