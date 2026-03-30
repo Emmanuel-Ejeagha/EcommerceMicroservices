@@ -1,13 +1,15 @@
-﻿namespace Ordering.Application.Orders.Commands.CreateOrder;
+﻿using BuildingBlocks.Exceptions;
+
+namespace Ordering.Application.Orders.Commands.CreateOrder;
 
 public class CreateOrderCommandHandler(IAppDbContext dbContext) : ICommandHandler<CreateOrderCommand, CreateOrderResult>
 {
     public async Task<CreateOrderResult> Handle(CreateOrderCommand command, CancellationToken cancellationToken)
-    {
+    {        
         var order = CreateNewOrder(command.Order);
 
         dbContext.Orders.Add(order);
-        await dbContext.SaveChangesAsync();
+        await dbContext.SaveChangesAsync(cancellationToken);
 
         return new CreateOrderResult(order.Id.Value);
     }
@@ -42,7 +44,7 @@ public class CreateOrderCommandHandler(IAppDbContext dbContext) : ICommandHandle
             billingAddress: billingAddress,
             payment: Payment.Of(
                 orderDto.Payment.CardName,
-                orderDto.Payment.CardName,
+                orderDto.Payment.CardNumber,
                 orderDto.Payment.Expiration,
                 orderDto.Payment.Cvv,
                 orderDto.Payment.PaymentMethod)
