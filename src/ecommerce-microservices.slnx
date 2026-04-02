@@ -9,6 +9,7 @@
 
   <Folder Name="/BuildingBlocks/" />
   <Folder Name="/BuildingBlocks/BuildingBlocks/">
+    <Project Path="BuildingBlocks/BuidingBlocks.Messaging/BuidingBlocks.Messaging.csproj" Id="22fa1217-2607-4e8b-9a0f-0f3859aeda04" />
     <Project Path="BuildingBlocks/BuildingBlocks/BuildingBlocks.csproj" />
   </Folder>
   <Folder Name="/Services/Discount/">
