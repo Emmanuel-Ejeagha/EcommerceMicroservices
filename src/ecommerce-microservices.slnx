@@ -6,6 +6,9 @@
   <Folder Name="/Services/Catalog/">
     <Project Path="Services/Catalog/Catalog.API/Catalog.API.csproj" Id="c44db002-57e4-41fd-9b94-1c2199462fc6" />
   </Folder>
+  <Folder Name="/ApiGateWays/">
+    <Project Path="ApiGateways/ApiGateway/ApiGateway.csproj" Id="b0b30455-9bb0-4fe8-8e90-cd4756dc83d1" />
+  </Folder>
 
   <Folder Name="/BuildingBlocks/" />
   <Folder Name="/BuildingBlocks/BuildingBlocks/">
