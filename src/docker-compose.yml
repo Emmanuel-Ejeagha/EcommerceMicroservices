@@ -38,9 +38,16 @@ services:
       context: .
       dockerfile: Services/Ordering/Ordering.API/Dockerfile
 
+  apigateway:
+    image: ${DOCKER_REGISTRY-}apigateway
+    build:
+      context: .
+      dockerfile: ApiGateways/ApiGateway/Dockerfile
+
 volumes:
   postgres_catalog:
   postgres_basket:
   discount_db:
+
 
 
