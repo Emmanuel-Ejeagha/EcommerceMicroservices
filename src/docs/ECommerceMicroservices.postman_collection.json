@@ -1,0 +1,824 @@
+{
+  "info": {
+    "_postman_id": "f73980b5-94aa-4713-b49c-5354d7e4e479",
+    "name": "ECommerceMicroservices",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "35165641"
+  },
+  "item": [
+    {
+      "name": "Catalog",
+      "item": [
+        {
+          "name": "GET all Products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{catalog_url}}/products?pageNumber=2&pageSize=5",
+              "host": [
+                "{{catalog_url}}"
+              ],
+              "path": [
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "pageNumber",
+                  "value": "2"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "5"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET ProductById",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{catalog_url}}/products/019ce23e-ac3c-4994-8a01-d25afdcb4642",
+              "host": [
+                "{{catalog_url}}"
+              ],
+              "path": [
+                "products",
+                "019ce23e-ac3c-4994-8a01-d25afdcb4642"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET ProductByCategory",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{catalog_url}}/products/category/phone",
+              "host": [
+                "{{catalog_url}}"
+              ],
+              "path": [
+                "products",
+                "category",
+                "phone"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Product",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"Name\": \"Product 6\",\r\n    \"Category\": [\"c6\"],\r\n    \"description\": \"Description Product D\",\r\n    \"imageFile\": \"ImageFile for Product D\",\r\n    \"price\": 300\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{catalog_url}}/products/",
+              "host": [
+                "{{catalog_url}}"
+              ],
+              "path": [
+                "products",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT Product",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": \"019cc3ee-b501-4d78-8d63-5e50e2e05f2f\",\r\n    \"Name\": \"Product 10\",\r\n    \"Category\": [\"c10\"],\r\n    \"description\": \"Description Product J\",\r\n    \"imageFile\": \"ImageFile for Product J\",\r\n    \"price\": 400\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{catalog_url}}/products",
+              "host": [
+                "{{catalog_url}}"
+              ],
+              "path": [
+                "products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Product",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{catalog_url}}/products/019ce23e-ac3c-4994-8a01-d25afdcb4642",
+              "host": [
+                "{{catalog_url}}"
+              ],
+              "path": [
+                "products",
+                "019ce23e-ac3c-4994-8a01-d25afdcb4642"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{catalog_url}}/health",
+              "host": [
+                "{{catalog_url}}"
+              ],
+              "path": [
+                "health"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Basket",
+      "item": [
+        {
+          "name": "GET BasketByUsername",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{basket_url}}/basket/Emmy",
+              "host": [
+                "{{basket_url}}"
+              ],
+              "path": [
+                "basket",
+                "Emmy"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Store Basket",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"Cart\":\r\n        {\r\n            \"UserName\": \"Emmy\",\r\n            \"Items\": [\r\n                {\r\n                    \"Quantity\": 2,\r\n                    \"Color\": \"Red\",\r\n                    \"Price\": 500,\r\n                    \"ProductId\": \"a0ab2300-03e0-4629-8e8d-44f09cb4f37c\",\r\n                    \"ProductName\": \"IPhone 16\"\r\n                },\r\n                {\r\n                    \"Quantity\": 1,\r\n                    \"Color\": \"Blue\",\r\n                    \"Price\": 500,\r\n                    \"ProductId\": \"fdf4a6b6-96cb-473e-926d-c748f002e4de\",\r\n                    \"ProductName\": \"Samsung 10\"\r\n                }\r\n            ]\r\n\r\n        }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{basket_url}}/basket",
+              "host": [
+                "{{basket_url}}"
+              ],
+              "path": [
+                "basket"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE BasketByUserName",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{basket_url}}/basket/swn",
+              "host": [
+                "{{basket_url}}"
+              ],
+              "path": [
+                "basket",
+                "swn"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{basket_url}}/health",
+              "host": [
+                "{{basket_url}}"
+              ],
+              "path": [
+                "health"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Checkout Basket",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"BasketCheckoutDto\":\r\n        {\r\n            \"username\": \"Emmy\",\r\n            \"CustomerId\": \"01eaa5cb-daa5-4458-8918-22d261dff344\",\r\n            \"totalPrice\": 0,\r\n            \"firstName\": \"Emmy\",\r\n            \"lastName\": \"Emmy\",\r\n            \"emailAddress\": \"test@test.com\",\r\n            \"addressline\": \"Suite 10 Oklahoma\",\r\n            \"country\": \"USA\",\r\n            \"state\": \"Oklahoma\",\r\n            \"city\": \"Kings\",\r\n            \"postalCode\": \"37643\",\r\n            \"cardName\": \"Emmy\",\r\n            \"cardNumber\": \"45434-54-343-4433\",\r\n            \"expiration\": \"11/30\",\r\n            \"cvv\": \"333\",\r\n            \"paymentMethod\": 1\r\n        }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{basket_url}}/basket/checkout",
+              "host": [
+                "{{basket_url}}"
+              ],
+              "path": [
+                "basket",
+                "checkout"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Ordering",
+      "item": [
+        {
+          "name": "Create Order",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"Order\":\r\n        {\r\n            \"CustomerId\": \"01eaa5cb-daa5-4458-8918-22d261dff344\",\r\n            \"OrderName\": \"ORD_4\",\r\n            \"ShippingAddress\":\r\n                {\r\n                    \"FirstName\": \"Petra\",\r\n                    \"LastName\": \"Star\",\r\n                    \"EmailAddress\": \"petra@tmail.com\",\r\n                    \"AddressLine\": \"Sydeny Pass Suite 43\",\r\n                    \"Country\": \"USA\",\r\n                    \"State\": \"Texas\",\r\n                    \"City\": \"Medford\",\r\n                    \"PostalCode\": \"43748\"\r\n                },\r\n            \"BillingAddress\":\r\n                {\r\n                    \"FirstName\": \"Petra\",\r\n                    \"LastName\": \"Star\",\r\n                    \"EmailAddress\": \"petra@tmail.com\",\r\n                    \"AddressLine\": \"Sydeny Pass Suite 43\",\r\n                    \"Country\": \"USA\",\r\n                    \"State\": \"Texas\",\r\n                    \"City\": \"Medford\",\r\n                    \"PostalCode\": \"43748\"\r\n                },\r\n            \"Payment\":\r\n                {\r\n                    \"CardName\": \"Petra Star\",\r\n                    \"CardNumber\": \"564-435-444-445\",\r\n                    \"Expiration\": \"12/26\",\r\n                    \"Cvv\": \"433\",\r\n                    \"PaymentMethod\": 1\r\n                },\r\n            \"Status\": 2,\r\n            \"OrderItems\": [\r\n                {\r\n                    \"ProductId\": \"4e171760-4e4a-49b5-88fd-a5038f27576e\",\r\n                    //\"ProductName\": \"Samsung Galaxy x20\",\r\n                    \"Quantity\": 2,\r\n                    \"Price\": 440\r\n                },\r\n                {\r\n                    \"ProductId\": \"38889291-3f69-40dc-8d6a-809c70c3472b\",\r\n                    //\"ProductName\": \"IPhone 16 Pro\",\r\n                    \"Quantity\": 2,\r\n                    \"Price\": 440\r\n                }\r\n            ]\r\n        }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{ordering_url}}/orders",
+              "host": [
+                "{{ordering_url}}"
+              ],
+              "path": [
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Order",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"Order\":\r\n        {\r\n            \"Id\" : \"9cc318c7-af23-4f4c-8b80-71af7952036e\",\r\n            \"CustomerId\": \"01eaa5cb-daa5-4458-8918-22d261dff344\",\r\n            \"OrderName\": \"ORD_4\",\r\n            \"ShippingAddress\":\r\n                {\r\n                    \"FirstName\": \"Dan\",\r\n                    \"LastName\": \"Sky\",\r\n                    \"EmailAddress\": \"dansky@tmail.com\",\r\n                    \"AddressLine\": \"Sydeny Pass Suite 43\",\r\n                    \"Country\": \"USA\",\r\n                    \"State\": \"Texas\",\r\n                    \"City\": \"Medford\",\r\n                    \"PostalCode\": \"43748\"\r\n                },\r\n            \"BillingAddress\":\r\n                {\r\n                    \"FirstName\": \"Petra\",\r\n                    \"LastName\": \"Star\",\r\n                    \"EmailAddress\": \"petra@tmail.com\",\r\n                    \"AddressLine\": \"Sydeny Pass Suite 43\",\r\n                    \"Country\": \"USA\",\r\n                    \"State\": \"Texas\",\r\n                    \"City\": \"Medford\",\r\n                    \"PostalCode\": \"43748\"\r\n                },\r\n            \"Payment\":\r\n                {\r\n                    \"CardName\": \"Dan Sky\",\r\n                    \"CardNumber\": \"564-435-444-445\",\r\n                    \"Expiration\": \"12/26\",\r\n                    \"CVV\": \"433\",\r\n                    \"PaymentMethod\": 1\r\n                },\r\n            \"Status\": 2,\r\n            \"OrderItems\": [\r\n                {\r\n                    \"ProductId\": \"4e171760-4e4a-49b5-88fd-a5038f27576e\",\r\n                    //\"ProductName\": \"Samsung Galaxy x20\",\r\n                    \"Quantity\": 2,\r\n                    \"Price\": 210\r\n                },\r\n                {\r\n                    \"ProductId\": \"38889291-3f69-40dc-8d6a-809c70c3472b\",\r\n                    //\"ProductName\": \"IPhone 16 Pro\",\r\n                    \"Quantity\": 2,\r\n                    \"Price\": 1440\r\n                }\r\n            ]\r\n        }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{ordering_url}}/orders",
+              "host": [
+                "{{ordering_url}}"
+              ],
+              "path": [
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Orders with Pagination",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"Order\":\r\n        {\r\n            \"Id\" : \"9cc318c7-af23-4f4c-8b80-71af7952036e\",\r\n            \"CustomerId\": \"01eaa5cb-daa5-4458-8918-22d261dff344\",\r\n            \"OrderName\": \"ORD_4\",\r\n            \"ShippingAddress\":\r\n                {\r\n                    \"FirstName\": \"Dan\",\r\n                    \"LastName\": \"Sky\",\r\n                    \"EmailAddress\": \"dansky@tmail.com\",\r\n                    \"AddressLine\": \"Sydeny Pass Suite 43\",\r\n                    \"Country\": \"USA\",\r\n                    \"State\": \"Texas\",\r\n                    \"City\": \"Medford\",\r\n                    \"PostalCode\": \"43748\"\r\n                },\r\n            \"BillingAddress\":\r\n                {\r\n                    \"FirstName\": \"Petra\",\r\n                    \"LastName\": \"Star\",\r\n                    \"EmailAddress\": \"petra@tmail.com\",\r\n                    \"AddressLine\": \"Sydeny Pass Suite 43\",\r\n                    \"Country\": \"USA\",\r\n                    \"State\": \"Texas\",\r\n                    \"City\": \"Medford\",\r\n                    \"PostalCode\": \"43748\"\r\n                },\r\n            \"Payment\":\r\n                {\r\n                    \"CardName\": \"Dan Sky\",\r\n                    \"CardNumber\": \"564-435-444-445\",\r\n                    \"Expiration\": \"12/26\",\r\n                    \"CVV\": \"433\",\r\n                    \"PaymentMethod\": 1\r\n                },\r\n            \"Status\": 2,\r\n            \"OrderItems\": [\r\n                {\r\n                    \"ProductId\": \"4e171760-4e4a-49b5-88fd-a5038f27576e\",\r\n                    //\"ProductName\": \"Samsung Galaxy x20\",\r\n                    \"Quantity\": 2,\r\n                    \"Price\": 210\r\n                },\r\n                {\r\n                    \"ProductId\": \"38889291-3f69-40dc-8d6a-809c70c3472b\",\r\n                    //\"ProductName\": \"IPhone 16 Pro\",\r\n                    \"Quantity\": 2,\r\n                    \"Price\": 1440\r\n                }\r\n            ]\r\n        }\r\n}"
+            },
+            "url": {
+              "raw": "{{ordering_url}}/orders?PageIndex=0&PageSize=2",
+              "host": [
+                "{{ordering_url}}"
+              ],
+              "path": [
+                "orders"
+              ],
+              "query": [
+                {
+                  "key": "PageIndex",
+                  "value": "0"
+                },
+                {
+                  "key": "PageSize",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Orders by Name",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"Order\":\r\n        {\r\n            \"Id\" : \"9cc318c7-af23-4f4c-8b80-71af7952036e\",\r\n            \"CustomerId\": \"01eaa5cb-daa5-4458-8918-22d261dff344\",\r\n            \"OrderName\": \"ORD_4\",\r\n            \"ShippingAddress\":\r\n                {\r\n                    \"FirstName\": \"Dan\",\r\n                    \"LastName\": \"Sky\",\r\n                    \"EmailAddress\": \"dansky@tmail.com\",\r\n                    \"AddressLine\": \"Sydeny Pass Suite 43\",\r\n                    \"Country\": \"USA\",\r\n                    \"State\": \"Texas\",\r\n                    \"City\": \"Medford\",\r\n                    \"PostalCode\": \"43748\"\r\n                },\r\n            \"BillingAddress\":\r\n                {\r\n                    \"FirstName\": \"Petra\",\r\n                    \"LastName\": \"Star\",\r\n                    \"EmailAddress\": \"petra@tmail.com\",\r\n                    \"AddressLine\": \"Sydeny Pass Suite 43\",\r\n                    \"Country\": \"USA\",\r\n                    \"State\": \"Texas\",\r\n                    \"City\": \"Medford\",\r\n                    \"PostalCode\": \"43748\"\r\n                },\r\n            \"Payment\":\r\n                {\r\n                    \"CardName\": \"Dan Sky\",\r\n                    \"CardNumber\": \"564-435-444-445\",\r\n                    \"Expiration\": \"12/26\",\r\n                    \"CVV\": \"433\",\r\n                    \"PaymentMethod\": 1\r\n                },\r\n            \"Status\": 2,\r\n            \"OrderItems\": [\r\n                {\r\n                    \"ProductId\": \"4e171760-4e4a-49b5-88fd-a5038f27576e\",\r\n                    //\"ProductName\": \"Samsung Galaxy x20\",\r\n                    \"Quantity\": 2,\r\n                    \"Price\": 210\r\n                },\r\n                {\r\n                    \"ProductId\": \"38889291-3f69-40dc-8d6a-809c70c3472b\",\r\n                    //\"ProductName\": \"IPhone 16 Pro\",\r\n                    \"Quantity\": 2,\r\n                    \"Price\": 1440\r\n                }\r\n            ]\r\n        }\r\n}"
+            },
+            "url": {
+              "raw": "{{ordering_url}}/orders/ORD_1",
+              "host": [
+                "{{ordering_url}}"
+              ],
+              "path": [
+                "orders",
+                "ORD_1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Order",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{ordering_url}}/orders/ac7c6ead-9402-4dfb-8276-9530887a36f7",
+              "host": [
+                "{{ordering_url}}"
+              ],
+              "path": [
+                "orders",
+                "ac7c6ead-9402-4dfb-8276-9530887a36f7"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{ordering_url}}/health",
+              "host": [
+                "{{ordering_url}}"
+              ],
+              "path": [
+                "health"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "YarpApiGateway",
+      "item": [
+        {
+          "name": "Catalog",
+          "item": [
+            {
+              "name": "GET all Products",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{yarp_url}}/catalog-service/products?pageNumber=1&pageSize=5",
+                  "host": [
+                    "{{yarp_url}}"
+                  ],
+                  "path": [
+                    "catalog-service",
+                    "products"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageNumber",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET ProductById",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{yarp_url}}/catalog-service/products/8a1534e2-ae59-4985-a491-172b9baf52ce",
+                  "host": [
+                    "{{yarp_url}}"
+                  ],
+                  "path": [
+                    "catalog-service",
+                    "products",
+                    "8a1534e2-ae59-4985-a491-172b9baf52ce"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET ProductByCategory",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{yarp_url}}/catalog-service/products/category/phone",
+                  "host": [
+                    "{{yarp_url}}"
+                  ],
+                  "path": [
+                    "catalog-service",
+                    "products",
+                    "category",
+                    "phone"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "POST Product",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"Name\": \"Infinix Hot 40i\",\r\n    \"Category\": [\"Infinix\"],\r\n    \"description\": \"Description Infinix Product\",\r\n    \"imageFile\": \"ImageFile for Product D\",\r\n    \"price\": 300\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{yarp_url}}/catalog-service/products",
+                  "host": [
+                    "{{yarp_url}}"
+                  ],
+                  "path": [
+                    "catalog-service",
+                    "products"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "PUT Product",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"id\": \"019cc3ee-b501-4d78-8d63-5e50e2e05f2f\",\r\n    \"Name\": \"Product 10\",\r\n    \"Category\": [\"c10\"],\r\n    \"description\": \"Description Product J\",\r\n    \"imageFile\": \"ImageFile for Product J\",\r\n    \"price\": 400\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{yarp_url}}/catalog-service/products/",
+                  "host": [
+                    "{{yarp_url}}"
+                  ],
+                  "path": [
+                    "catalog-service",
+                    "products",
+                    ""
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "DELETE Product",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{yarp_url}}/catalog-service/products/8a1534e2-ae59-4985-a491-172b9baf52ce",
+                  "host": [
+                    "{{yarp_url}}"
+                  ],
+                  "path": [
+                    "catalog-service",
+                    "products",
+                    "8a1534e2-ae59-4985-a491-172b9baf52ce"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Basket",
+          "item": [
+            {
+              "name": "GET BasketByUsername",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{yarp_url}}/basket-service/basket/Emmy",
+                  "host": [
+                    "{{yarp_url}}"
+                  ],
+                  "path": [
+                    "basket-service",
+                    "basket",
+                    "Emmy"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "POST Store Basket",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"Cart\":\r\n        {\r\n            \"UserName\": \"Emmy\",\r\n            \"Items\": [\r\n                {\r\n                    \"Quantity\": 2,\r\n                    \"Color\": \"Red\",\r\n                    \"Price\": 500,\r\n                    \"ProductId\": \"a0ab2300-03e0-4629-8e8d-44f09cb4f37c\",\r\n                    \"ProductName\": \"IPhone 16\"\r\n                },\r\n                {\r\n                    \"Quantity\": 1,\r\n                    \"Color\": \"Blue\",\r\n                    \"Price\": 500,\r\n                    \"ProductId\": \"fdf4a6b6-96cb-473e-926d-c748f002e4de\",\r\n                    \"ProductName\": \"Samsung 10\"\r\n                }\r\n            ]\r\n\r\n        }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{yarp_url}}/basket-service/basket",
+                  "host": [
+                    "{{yarp_url}}"
+                  ],
+                  "path": [
+                    "basket-service",
+                    "basket"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "DELETE BasketByUserName",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{yarp_url}}/basket-service/basket/swn",
+                  "host": [
+                    "{{yarp_url}}"
+                  ],
+                  "path": [
+                    "basket-service",
+                    "basket",
+                    "swn"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "POST Checkout Basket",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{yarp_url}}/basket-service/basket/checkout",
+                  "host": [
+                    "{{yarp_url}}"
+                  ],
+                  "path": [
+                    "basket-service",
+                    "basket",
+                    "checkout"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Ordering",
+          "item": [
+            {
+              "name": "CREATE Order",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"Order\":\r\n        {\r\n            \"CustomerId\": \"01eaa5cb-daa5-4458-8918-22d261dff344\",\r\n            \"OrderName\": \"ORD_4\",\r\n            \"ShippingAddress\":\r\n                {\r\n                    \"FirstName\": \"Petra\",\r\n                    \"LastName\": \"Star\",\r\n                    \"EmailAddress\": \"petra@tmail.com\",\r\n                    \"AddressLine\": \"Sydeny Pass Suite 43\",\r\n                    \"Country\": \"USA\",\r\n                    \"State\": \"Texas\",\r\n                    \"City\": \"Medford\",\r\n                    \"PostalCode\": \"43748\"\r\n                },\r\n            \"BillingAddress\":\r\n                {\r\n                    \"FirstName\": \"Petra\",\r\n                    \"LastName\": \"Star\",\r\n                    \"EmailAddress\": \"petra@tmail.com\",\r\n                    \"AddressLine\": \"Sydeny Pass Suite 43\",\r\n                    \"Country\": \"USA\",\r\n                    \"State\": \"Texas\",\r\n                    \"City\": \"Medford\",\r\n                    \"PostalCode\": \"43748\"\r\n                },\r\n            \"Payment\":\r\n                {\r\n                    \"CardName\": \"Petra Star\",\r\n                    \"CardNumber\": \"564-435-444-445\",\r\n                    \"Expiration\": \"12/26\",\r\n                    \"Cvv\": \"433\",\r\n                    \"PaymentMethod\": 1\r\n                },\r\n            \"Status\": 2,\r\n            \"OrderItems\": [\r\n                {\r\n                    \"ProductId\": \"4e171760-4e4a-49b5-88fd-a5038f27576e\",\r\n                    //\"ProductName\": \"Samsung Galaxy x20\",\r\n                    \"Quantity\": 2,\r\n                    \"Price\": 440\r\n                },\r\n                {\r\n                    \"ProductId\": \"38889291-3f69-40dc-8d6a-809c70c3472b\",\r\n                    //\"ProductName\": \"IPhone 16 Pro\",\r\n                    \"Quantity\": 2,\r\n                    \"Price\": 440\r\n                }\r\n            ]\r\n        }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{yarp_url}}/ordering-service/orders",
+                  "host": [
+                    "{{yarp_url}}"
+                  ],
+                  "path": [
+                    "ordering-service",
+                    "orders"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update Order",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"Order\":\r\n        {\r\n            \"Id\" : \"9cc318c7-af23-4f4c-8b80-71af7952036e\",\r\n            \"CustomerId\": \"01eaa5cb-daa5-4458-8918-22d261dff344\",\r\n            \"OrderName\": \"ORD_4\",\r\n            \"ShippingAddress\":\r\n                {\r\n                    \"FirstName\": \"Dan\",\r\n                    \"LastName\": \"Sky\",\r\n                    \"EmailAddress\": \"dansky@tmail.com\",\r\n                    \"AddressLine\": \"Sydeny Pass Suite 43\",\r\n                    \"Country\": \"USA\",\r\n                    \"State\": \"Texas\",\r\n                    \"City\": \"Medford\",\r\n                    \"PostalCode\": \"43748\"\r\n                },\r\n            \"BillingAddress\":\r\n                {\r\n                    \"FirstName\": \"Petra\",\r\n                    \"LastName\": \"Star\",\r\n                    \"EmailAddress\": \"petra@tmail.com\",\r\n                    \"AddressLine\": \"Sydeny Pass Suite 43\",\r\n                    \"Country\": \"USA\",\r\n                    \"State\": \"Texas\",\r\n                    \"City\": \"Medford\",\r\n                    \"PostalCode\": \"43748\"\r\n                },\r\n            \"Payment\":\r\n                {\r\n                    \"CardName\": \"Dan Sky\",\r\n                    \"CardNumber\": \"564-435-444-445\",\r\n                    \"Expiration\": \"12/26\",\r\n                    \"CVV\": \"433\",\r\n                    \"PaymentMethod\": 1\r\n                },\r\n            \"Status\": 2,\r\n            \"OrderItems\": [\r\n                {\r\n                    \"ProductId\": \"4e171760-4e4a-49b5-88fd-a5038f27576e\",\r\n                    //\"ProductName\": \"Samsung Galaxy x20\",\r\n                    \"Quantity\": 2,\r\n                    \"Price\": 210\r\n                },\r\n                {\r\n                    \"ProductId\": \"38889291-3f69-40dc-8d6a-809c70c3472b\",\r\n                    //\"ProductName\": \"IPhone 16 Pro\",\r\n                    \"Quantity\": 2,\r\n                    \"Price\": 1440\r\n                }\r\n            ]\r\n        }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{yarp_url}}/ordering-service/orders",
+                  "host": [
+                    "{{yarp_url}}"
+                  ],
+                  "path": [
+                    "ordering-service",
+                    "orders"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET Orders with Pagination",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{yarp_url}}/ordering-service/orders?PageIndex=0&PageSize=2",
+                  "host": [
+                    "{{yarp_url}}"
+                  ],
+                  "path": [
+                    "ordering-service",
+                    "orders"
+                  ],
+                  "query": [
+                    {
+                      "key": "PageIndex",
+                      "value": "0"
+                    },
+                    {
+                      "key": "PageSize",
+                      "value": "2"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET Orders by Name",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{yarp_url}}/ordering-service/orders/ORD_1",
+                  "host": [
+                    "{{yarp_url}}"
+                  ],
+                  "path": [
+                    "ordering-service",
+                    "orders",
+                    "ORD_1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "DELETE Order",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{ordering_url}}/ordering-service/orders/ac7c6ead-9402-4dfb-8276-9530887a36f7",
+                  "host": [
+                    "{{ordering_url}}"
+                  ],
+                  "path": [
+                    "ordering-service",
+                    "orders",
+                    "ac7c6ead-9402-4dfb-8276-9530887a36f7"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
