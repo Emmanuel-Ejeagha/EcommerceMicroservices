@@ -2,7 +2,7 @@
 
 public record OrderName
 {
-    private const int DefaultLength = 2;
+    private const int DefaultLength = 5;
     public string Value { get; }
     private OrderName(string value) => Value = value;
 
